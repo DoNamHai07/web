@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai5</title>
+    <style>
+    /* Khung chứa để căn nút về phía bên phải giống trong ảnh */
+.payment-container {
+    width: 100%;
+    max-width: 500px; /* Bạn có thể điều chỉnh kích thước khung cho phù hợp */
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end; /* Căn nút sang bên phải */
+    box-sizing: border-box;
+}
+
+/* Định dạng thẻ nút thanh toán */
+.btn-payment {
+    background-color: #ff2a5f; /* Màu hồng cánh sen đậm đặc trưng */
+    color: #ffffff;            /* Chữ màu trắng */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;         /* Chữ in đậm */
+    padding: 12px 24px;        /* Khoảng cách đệm bên trong nút */
+    border: none;              /* Xóa viền mặc định */
+    border-radius: 4px;        /* Bo góc nhẹ giống trong ảnh image_092eba.png */
+    cursor: pointer;           /* Đổi con trỏ chuột khi di chuyển vào nút */
+    transition: background-color 0.2s ease;
+}
+
+/* Hiệu ứng khi di chuột vào (Hover) */
+.btn-payment:hover {
+    background-color: #e62253; /* Tối hơn một chút khi hover */
+}
+</style>  
 </head>
 <body>
     <form>
@@ -19,6 +49,8 @@
     <input type="radio" name="loai_giuong">2 giuong don
 </label>
 </div>
+
+<fieldset  style="width: 400px; height: 150px; background-color: #ffd4d433; border-radius: 5px; padding: 10px; border: 1px solid #ffffff;">
 <h3>Yeu cau dac biet</h3>
 <div style="display: flex; flex-direction: column;gap: 10;">
     <label>
@@ -27,7 +59,22 @@
     <label>
         <input type="checkbox" name="phong">Phong o tang cao
     </label>
+
+    
     </div>
+
+    <DIV>
+<h3>    Yêu cầu của riêng bạn</h3>
+
+    <textarea name="yeu_cau" cols="50" rows="5" placeholder="Nhập yêu cầu khác"></textarea>
+</DIV>
+<div class="payment-container">
+    <!-- Các phần tử khác phía trên nếu có -->
+    <button class="btn-payment">Thanh toán</button>
+</div>
+
+</fieldset>
+
        </fieldset>
     </form>
 </body>

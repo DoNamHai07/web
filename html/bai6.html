@@ -4,15 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai6</title>
-</head>
-<body>
+    <style>
+h2{
+    color: #008000; text-align: center;
+}
+p{
+    color: red;
+}
+td{
+    color:#008000
+}
+</style>
 
-<table>
-<caption>
-    <h2>Phieu</h2>
-</caption>
+</head>
+
+<body>
+<fieldset style="width: 500px; margin: auto; background-color: #ffffff;">
+   
+<table border="2" cellspacing="0" cellpadding="15" style="background-color: #dfffdf;">
+<tr>
+            <td colspan="2" style="text-align: center; border: none; padding-bottom: 20px; background-color: #ffffff;">
+                <h2 style="color: green; margin: 0;">Phiếu đăng kí tham gia chương trình khuyến mãi</h2>
+            </td>
+        </tr>
+
+<tr>
+    <td>Họ và tên:</td>
+    <td><input type="text" name="fullname"></td>
+</tr>
+
+<tr>
+    <td>Địa chỉ:</td>
+    <td><input type="text" name="address"></td>
+</tr>
+
+<tr>
+    <td>Số điện thoại:</td>
+    <td><input type="text" name="phone"></td>
+</tr>
+
+<tr>
+    <td>Giới tính:</td>
+    <td>
+        <input type="radio" name="gender" value="male"> Nam
+        <input type="radio" name="gender" value="female"> Nữ                                               
+
+    </td>
+</tr>
+
+<tr>
+    <td>Nghề nghiệp:</td>
+    <td>
+        <select name="occupation"   >   >
+            <option value="job1">Giáo viên</option>
+            <option value="job2">Bác sĩ</option>
+            <option value="job3">Đào mỏ</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Chọn sản phẩm tham gia:</td>
+    <td>
+        <select name="product" multiple  size="4">
+            <option value="product1" selected>Kem đánh răng</option>
+            <option value="product2">Bột giặt</option>
+            <option value="product3" selected>Dầu gội đầu</option>
+            <option value="product4">Sữa tắm</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Số người dự đoán tham gia </td>
+    <td><input type="text" name="phone"></td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="Đồng ý">
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <p>Bạn đã đăng kí thành công!</p>
+    </td>
+</tr>
+
 </table>
 
+</fieldset>
 
     
     

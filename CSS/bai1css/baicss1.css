@@ -1,0 +1,23 @@
+
+main,header{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+    font-weight: bold
+}
+
+h1{
+    color: brown;
+}
+
+li{
+    font-size: 17px;
+}
+
+.nghieng{
+    font-style: italic;
+
+}
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin hot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            padding: 24px;
+            color: #1f2937;
+        }
+
+        .news-box {
+            width: 520px;
+            border: 1px solid #d0d5db;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .news-box h2 {
+            font-size: 16px;
+            color: #dc2626;
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .news {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item {
+            padding: 16px 18px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item h3 {
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .item .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .item .meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .item .meta span + span::before {
+            content: "•";
+            display: inline-block;
+            margin: 0 8px;
+            color: #d1d5db;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .item .meta .tag {
+            background-color: #f3f4f6;
+            color: #475569;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+        }
+
+        .item .meta .tag.highlight {
+            background-color: #e5e7eb;
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-box">
+        <h2>Tin hot</h2>
+        <div class="news">
+            <div class="item">
+                <h3>Câu hỏi nhức nhối khắp MXH: Tại sao chúng ta phải đóng bảo trì đường bộ khi cứ phải giao thông bằng đường thủy?</h3>
+                <div class="meta">
+                    <span>12 phút trước</span>
+                    <span>4 bình luận</span>
+                    <span class="tag">Loan tin</span>
+                    <span class="tag">S37-Oza, kanishi</span>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Bạn vẫn chưa hiểu vì sao Twitch hay YouTube Gaming (xem người khác chơi game) hay chỗ nào? Tốt thôi, lý do đây</h3>
+                <div class="meta">
+                    <span>1 giờ trước</span>
+                    <span>13 bình luận</span>
+                    <span class="tag">Loan tin</span>
+                    <span class="tag">S37-Oza, SuperSliver</span>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Bước ngoặt "giật mình" trong cuộc chiến "dã hổ" của ông Tập</h3>
+                <div class="meta">
+                    <span>2 giờ trước</span>
+                    <span>5 bình luận</span>
+                    <span class="tag">Loan tin</span>
+                    <span class="tag">tuan-anh, cuong205a</span>
+                </div>
+            </div>
+            <div class="item">
+                <h3>Mark Zuckerberg nói Facebook đang làm nút Không thích - Dislike</h3>
+                <div class="meta">
+                    <span>2 giờ trước</span>
+                    <span>12 bình luận</span>
+                    <span class="tag">Loan tin</span>
+                    <span class="tag">kanishi, CONGTM09 và 2 người nữa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

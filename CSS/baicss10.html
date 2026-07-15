@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baicss9</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .image-wrapper {
+      position: relative;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .date-box {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      width: 90px;
+      background: #d63f13;
+      color: #ffffff;
+      padding: 16px 12px;
+    }
+
+    .date-box .day {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .date-box .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.6);
+      margin-bottom: 10px;
+    }
+
+    .date-box .month {
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    .content {
+      padding: 28px 0 0;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #111827;
+      max-width: 720px;
+      margin-left: 18px;
+      border-left: 4px solid #ef4444;
+      padding-left: 18px;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup {
+      position: relative;
+      width: min(420px, calc(100% - 40px));
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .popup img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .popup-body {
+      padding: 20px;
+    }
+
+    .popup-body h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #111827;
+    }
+
+    .popup-body p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.55);
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="image-wrapper">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" alt="Hoa tulip vàng">
+        <div class="date-box">
+          <div class="day">17</div>
+          <div class="divider"></div>
+          <div class="month">Tháng 6</div>
+        </div>
+      </div>
+      <div class="content">
+        <h1>Khóa đào tạo “Kỹ năng thích ứng môi trường làm việc”</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="popupOverlay">
+    <div class="popup">
+      <button class="close-btn" id="closePopup">×</button>
+      <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/ed2827e615a6f99cbf4a380918906f36e5bfbaeb-1200x453.gif" alt="Quảng cáo">
+      <div class="popup-body">
+        <h2>Vandal Sentinal Of Light</h2>
+        <p>Giá giảm mạnh chỉ còn 150VP ae húp nhanh còn kịp</p>
+      </div>
+    </div>
+  </div>
+
+ 
+</body>
+</html>

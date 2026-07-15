@@ -1,0 +1,4 @@
+cho marin padding các thứ
+tạo 1 div class 
+css class đó width height rồi background color
+boder top là viền trên hộp

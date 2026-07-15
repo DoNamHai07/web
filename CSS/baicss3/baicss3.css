@@ -1,0 +1,56 @@
+/* Khung bọc lớn màu xanh dương bên ngoài */
+.card {
+  background-color: #1a9fff; /* Màu xanh nền chính */
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 500px; /* Giới hạn chiều rộng giống hình mẫu */
+  box-sizing: border-box;
+}
+
+/* Tiêu đề chữ màu cam/vàng */
+.title {
+  color: #ff9900; 
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Các box màu xanh lá cây bên trong */
+.content-box {
+  background-color: #33cc00; /* Màu nền xanh lá */
+  border: 3px dashed #ff0000; /* Đường viền đứt nét màu đỏ */
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #ffffff; /* Chữ màu trắng */
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  
+  /* Sử dụng flexbox để ảnh và chữ nằm dàn hàng ngang ở box đầu tiên */
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* Xử lý riêng cho box thứ 2 không có ảnh để chữ tự nhiên */
+.content-box:last-child {
+  display: block;
+  margin-bottom: 0;
+}
+
+/* CSS cho phần hình ảnh hiển thị bên trái */
+.image-placeholder {
+  flex-shrink: 0;
+  width: 120px;
+  height: 90px;
+  background-color: #777; /* Giả lập khung chứa ảnh */
+  /* Nếu bạn dùng thẻ <img> thật, chỉ cần đặt width/height tương tự */
+
+  background-image: url('https://aquariumcare.vn/upload/sanpham/chim-vet-nhung-co-may-bay-cuc-ky-dang-yeu.jpg'); /* Thay bằng URL ảnh thật nếu có */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 5px; /* Bo góc nhẹ */
+  
+}

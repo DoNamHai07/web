@@ -1,0 +1,25 @@
+.mybox{
+  border: 10px solid #0000ff; /* This will create a blue border with a thickness of 10 pixels */
+  border-radius: 10px 20px 30px 40px; /* This will create a box with different border radius for each corner */
+  border-top-left-radius: 0px; /* This will make the top-left corner square */
+  width: 50%; /* This will set the width of the box to 50% of its parent container */
+
+  /*padding-top: 20px;  This will add 20 pixels of padding to the top of the box 
+  padding-right: 40px;  This will add 40 pixels of padding to the right of the box 
+  padding-bottom: 60px;  This will add 60 pixels of padding to the bottom of the box 
+  padding-left: 80px;  This will add 80 pixels of padding to the left of the box */
+
+  padding: 20px 40px;  /* This will add padding to the box in the order of top, right, bottom, left */
+  margin-top:30px;  
+  max-width: 800px; /*s This will set the maximum width of the box to 800 pixels */
+  height: 400px; /* This will set the height of the box to 300 pixels */
+
+
+  background-color: #f0f0f0; /* This will set the background color of the box to a light gray */
+  background-image: url('https://tomauvui.com/wp-content/uploads/2025/05/tranh-to-mau-messi.jpg'); /* This will set the background image of the box */
+  background-clip: content-box; /* This will set the background image to be clipped to the content box */
+  background-repeat: no-repeat; /* This will prevent the background image from repeating */
+  background-size: cover; /* This will make the background image cover the entire box */
+  background-position: center center;  /* This will center the background image within the box */
+
+}

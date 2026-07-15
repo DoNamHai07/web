@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Web Xem Phim - Mẫu Hoàn Chỉnh</title>
+	<style>
+		:root{--bg:#0f1724;--card:#0b1220;--accent:#ff5a5f;--muted:#9aa4b2;--glass:rgba(255,255,255,0.04)}
+		html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071023 0%,#031021 100%);color:#e6eef6}
+		.container{max-width:1100px;margin:28px auto;padding:20px}
+		header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+		.brand{display:flex;align-items:center;gap:12px}
+		.logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff8a5b);display:flex;align-items:center;justify-content:center;font-weight:700}
+		h1{font-size:18px;margin:0}
+		.search{display:flex;gap:8px}
+		input[type=search]{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px;color:inherit;min-width:220px}
+		button{background:var(--accent);border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+
+		.layout{display:grid;grid-template-columns:320px 1fr;gap:18px}
+		nav{background:var(--card);padding:14px;border-radius:10px;height:calc(100vh - 160px);overflow:auto}
+		nav h3{margin:0 0 8px 0;font-size:14px;color:var(--muted)}
+		.sidebar-list{display:flex;flex-direction:column;gap:8px}
+		.item{display:flex;gap:10px;padding:8px;border-radius:8px;align-items:center;cursor:pointer}
+		.item:hover{background:rgba(255,255,255,0.02)}
+		.thumb{width:72px;height:40px;background:#233444;border-radius:6px;flex-shrink:0}
+
+		main{background:transparent}
+		.player-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:10px}
+		video{width:100%;border-radius:8px;background:black}
+		.meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+		.title{font-size:18px;margin:0}
+		.controls{display:flex;gap:8px}
+
+		.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+		.card{background:var(--card);padding:8px;border-radius:8px}
+		.card .poster{width:100%;height:200px;background:#132233;border-radius:6px}
+		.card .name{margin-top:8px;font-size:14px}
+
+		footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+		/* modal */
+		.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6)}
+		.modal.open{display:flex}
+		.modal .dialog{width:90%;max-width:900px;background:#071022;padding:12px;border-radius:10px}
+		.close{float:right;cursor:pointer}
+
+		@media(max-width:800px){.layout{grid-template-columns:1fr}.container{padding:12px}nav{height:auto}}
+	</style>
+	<meta name="description" content="Mẫu web xem phim đơn giản - phát video, danh sách, tìm kiếm"/>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="brand">
+				<div class="logo">PX</div>
+				<div>
+					<h1>Web Xem Phim - Mẫu</h1>
+					<div style="font-size:12px;color:var(--muted)">Thư viện phim demo</div>
+				</div>
+			</div>
+			<div class="search">
+				<input id="q" type="search" placeholder="Tìm phim, thể loại...">
+				<button id="searchBtn">Tìm</button>
+			</div>
+		</header>
+
+		<div class="layout">
+			<nav>
+				<h3>Thể loại</h3>
+				<div class="sidebar-list" id="genres">
+					<!-- genres injected -->
+				</div>
+				<h3 style="margin-top:12px">Phim hot</h3>
+				<div id="hot" class="sidebar-list"></div>
+			</nav>
+
+			<main>
+				<section class="player-card">
+					<video id="player" controls poster="" crossorigin>
+						<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+						Trình duyệt không hỗ trợ video.
+					</video>
+					<div class="meta">
+						<div>
+							<h2 id="playerTitle" class="title">Demo: Flower (CC0)</h2>
+							<div style="color:var(--muted);font-size:13px">Thời lượng: 0:30 • Chất lượng: 720p</div>
+						</div>
+						<div class="controls">
+							<button id="openList">Danh sách</button>
+							<button id="openPlayerPop">Mở ra cửa sổ</button>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3 style="margin-top:12px">Thư viện</h3>
+					<div id="library" class="grid">
+						<!-- cards injected -->
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<footer>© Mẫu web xem phim — Chỉ cho mục đích demo</footer>
+	</div>
+
+	<div id="modal" class="modal" role="dialog" aria-hidden="true">
+		<div class="dialog">
+			<span class="close" id="mClose">✕</span>
+			<div id="modalContent"></div>
+		</div>
+	</div>
+
+	<script>
+		// Dữ liệu mẫu
+		const movies = [
+			{id:1,title:'Flower (Demo)',src:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',poster:'',genre:'Short'},
+			{id:2,title:'Big Buck Bunny',src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',poster:'',genre:'Animation'},
+			{id:3,title:'Sintel',src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',poster:'',genre:'Animation'},
+			{id:4,title:'Tears of Steel',src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',poster:'',genre:'Sci-Fi'}
+		];
+
+		const genres = [...new Set(movies.map(m=>m.genre))];
+		const genresEl = document.getElementById('genres');
+		genres.forEach(g=>{
+			const b = document.createElement('div');b.className='item';b.textContent=g; b.onclick=()=>filterByGenre(g);genresEl.appendChild(b);
+		});
+
+		const hotEl = document.getElementById('hot');
+		movies.slice(0,3).forEach(m=>{const it=document.createElement('div');it.className='item';it.innerHTML=`<div class="thumb"></div><div><div style="font-size:13px">${m.title}</div><div style="font-size:12px;color:var(--muted)">${m.genre}</div></div>`;it.onclick=()=>playMovie(m.id);hotEl.appendChild(it)});
+
+		function renderLibrary(list){
+			const lib = document.getElementById('library');lib.innerHTML='';
+			list.forEach(m=>{
+				const c = document.createElement('div');c.className='card';
+				c.innerHTML = `<div class="poster"></div><div class="name">${m.title}</div><div style="color:var(--muted);font-size:12px">${m.genre}</div>`;
+				c.onclick = ()=>playMovie(m.id);
+				lib.appendChild(c);
+			});
+		}
+
+		renderLibrary(movies);
+
+		function playMovie(id){
+			const m = movies.find(x=>x.id===id);if(!m) return;
+			const player = document.getElementById('player');
+			player.src = m.src; document.getElementById('playerTitle').textContent = m.title; player.play();
+		}
+
+		function filterByGenre(g){ renderLibrary(movies.filter(m=>m.genre===g)); }
+
+		document.getElementById('searchBtn').onclick = ()=>{
+			const q = document.getElementById('q').value.trim().toLowerCase();
+			if(!q) return renderLibrary(movies);
+			renderLibrary(movies.filter(m=>m.title.toLowerCase().includes(q) || m.genre.toLowerCase().includes(q)));
+		}
+
+		// modal for list or info
+		const modal = document.getElementById('modal');
+		document.getElementById('openList').onclick = ()=>{modal.classList.add('open');document.getElementById('modalContent').innerHTML = '<h3>Danh sách phim</h3>' + movies.map(m=>`<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03)">${m.title} <small style="color:var(--muted)">(${m.genre})</small></div>`).join('');}
+		document.getElementById('openPlayerPop').onclick = ()=>{window.open(document.getElementById('player').src,'_blank');}
+		document.getElementById('mClose').onclick = ()=>modal.classList.remove('open');
+		modal.onclick = (e)=>{ if(e.target===modal) modal.classList.remove('open'); }
+	</script>
+</body>
+</html>
